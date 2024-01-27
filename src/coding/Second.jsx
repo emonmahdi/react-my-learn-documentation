@@ -7,7 +7,13 @@ const users = [
 
 const Second = () => {
   return (
-    <div>
+    <div
+      style={{
+        padding: "20px",
+        border: "1px solid #000",
+        margin: "10px 0",
+      }}
+    >
       <h2>2. Coding Exercise: Display array of users to browser</h2>
       <h3>All users are: </h3>
       {users.map((user) => (

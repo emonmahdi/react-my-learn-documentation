@@ -6,6 +6,8 @@ import Parent from "./coding/Six/Parent";
 import Third from "./coding/Third";
 import Child from "./coding/Six/Child";
 import Eight from "./coding/Eight";
+import Nine from "./coding/Nine";
+import Ten from "./coding/Ten";
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
         <Child />
       </Parent>
       <Eight />
+      <Nine />
+      <Ten />
     </>
   );
 }
