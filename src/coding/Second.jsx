@@ -8,7 +8,7 @@ const users = [
 const Second = () => {
   return (
     <div>
-      <h4>2. Coding Exercise: Display array of users to browser</h4>
+      <h2>2. Coding Exercise: Display array of users to browser</h2>
       <h3>All users are: </h3>
       {users.map((user) => (
         <li key={user.id}>{user.name}</li>

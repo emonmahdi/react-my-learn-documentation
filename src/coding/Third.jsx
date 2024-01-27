@@ -4,7 +4,7 @@ const Third = () => {
   const [show, setShow] = useState(false);
   return (
     <div>
-      <h4>2. Coding Exercise: Display array of users to browser</h4>
+      <h2>2. Coding Exercise: Display array of users to browser</h2>
       <button onClick={() => setShow(!show)}>
         {show ? "Hide element blow" : "Show element blow"}{" "}
       </button>

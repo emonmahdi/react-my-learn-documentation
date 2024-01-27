@@ -1,6 +1,11 @@
 import FirstJSX from "./coding/FirstJSX";
+import Five from "./coding/Five";
+import Four from "./coding/Four";
 import Second from "./coding/Second";
+import Parent from "./coding/Six/Parent";
 import Third from "./coding/Third";
+import Child from "./coding/Six/Child";
+import Eight from "./coding/Eight";
 
 function App() {
   return (
@@ -17,6 +22,13 @@ function App() {
       <FirstJSX />
       <Second />
       <Third />
+      <Four />
+      <Five />
+      {/* <Parent /> */}
+      <Parent>
+        <Child />
+      </Parent>
+      <Eight />
     </>
   );
 }
