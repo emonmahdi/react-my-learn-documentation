@@ -17,7 +17,7 @@ const Nine = () => {
             margin: "5px 15px",
           }}
         >
-          {counter}
+          Count: {counter}
         </h2>
         <button onClick={() => setCounter(counter + 1)}>Increment</button>
       </div>

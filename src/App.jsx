@@ -8,6 +8,8 @@ import Child from "./coding/Six/Child";
 import Eight from "./coding/Eight";
 import Nine from "./coding/Nine";
 import Ten from "./coding/Ten";
+import CurrencyConverter from "./components/CurrencyConverter";
+import Stopwatch from "./components/Stopwatch";
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
       >
         React My Practice Docs
       </h2>
+      <CurrencyConverter />
+      <Stopwatch />
       <FirstJSX />
       <Second />
       <Third />

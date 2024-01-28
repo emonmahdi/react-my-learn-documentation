@@ -17,7 +17,7 @@ const Eight = () => {
         margin: "10px 0",
       }}
     >
-      <h2>8. Coding Exercise:Sum of Two Numbers</h2>
+      <h2>8. Coding Exercise: Sum of Two Numbers</h2>
 
       <div
         style={{
@@ -42,7 +42,7 @@ const Eight = () => {
           type="text"
           value={number2}
           onChange={(e) => setNumber2(+e.target.value)}
-          placeholder="Input Numbe..  "
+          placeholder="Input Number..  "
         />
       </div>
       <div>

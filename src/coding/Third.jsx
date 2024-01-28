@@ -10,7 +10,7 @@ const Third = () => {
         margin: "10px 0",
       }}
     >
-      <h2>2. Coding Exercise: Display array of users to browser</h2>
+      <h2>2. Coding Exercise: Show and Hide element </h2>
       <button onClick={() => setShow(!show)}>
         {show ? "Hide element blow" : "Show element blow"}{" "}
       </button>
