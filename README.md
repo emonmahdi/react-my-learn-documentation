@@ -296,6 +296,224 @@ export default Greeting;
 
 With the introduction of React Hooks, functional components have become more powerful, and the use of class components has declined. However, it's still essential to understand both types of components for coding interviews and legacy codebases.
 
+### 3. What are React props?
+
+Answer: Props (short for "properties") are a way to pass data from parent components to child components in React. Props are read-only, meaning that child components should not modify the data passed to them through props.
+
+Props are passed as attributes to child components and can be accessed within the child component using the props object. Here's an example of how to pass and use props in React:
+
+Parent component:
+
+```js
+import React from "react";
+import ChildComponent from "./ChildComponent";
+
+function ParentComponent() {
+  const message = "Hello from ParentComponent";
+
+  return <ChildComponent text={message} />;
+}
+
+export default ParentComponent;
+```
+
+Child component:
+
+```js
+import React from "react";
+
+function ChildComponent(props) {
+  return <h1>{props.text}</h1>;
+}
+
+export default ChildComponent;
+```
+
+In this example, the ParentComponent passes the message variable as a prop named text to the ChildComponent. The ChildComponent then accesses the text prop using props.text and renders it in an `<h1>` element.
+
+### 4. What is state in React, and how is it managed?
+
+Answer: In React, the state refers to an object that holds the data or information required to render a component. The state is mutable and can change over time, causing the component to re-render whenever there's a change in the state.
+
+In class components, the state is managed using the this.state object and the this.setState() method. The this.state object holds the initial state of the component, while the this.setState() method is used to update the state.
+
+Here's an example of managing state in a class component:
+
+```js
+import React, { Component } from "react";
+
+class Counter extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0,
+    };
+  }
+
+  incrementCounter = () => {
+    this.setState({ count: this.state.count + 1 });
+  };
+
+  render() {
+    return (
+      <div>
+        <h1>Count: {this.state.count}</h1>
+        <button onClick={this.incrementCounter}>Increment</button>
+      </div>
+    );
+  }
+}
+
+export default Counter;
+```
+
+In functional components, the state can be managed using the useState hook. The useState hook is a function that takes the initial state as an argument and returns an array containing the current state and a function to update the state.
+
+Here's an example of managing state in a functional component using the useState hook:
+
+```js
+import React, { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  const incrementCounter = () => {
+    setCount(count + 1);
+  };
+
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+      <button onClick={incrementCounter}>Increment</button>
+    </div>
+  );
+}
+
+export default Counter;
+```
+
+### 5. What are React lifecycle methods?
+
+Answer: Lifecycle methods are special methods in class components that allow you to execute code at specific points during the component's lifecycle. The lifecycle of a React component can be divided into three main phases:
+
+Mounting: This phase occurs when a component is being created and inserted into the DOM. The following lifecycle methods are called during this phase:
+
+<h4>constructor():</h4>  Called when the component is being created. It's used to initialize the state and bind event handlers.
+
+<h4>static getDerivedStateFromProps():</h4> Called before the component is rendered. It's used to update the state based on changes in the props.
+
+<h4>render():</h4>  Called to generate the JSX representation of the component. It's the only required lifecycle method.
+
+<h4>componentDidMount():</h4>  Called after the component is inserted into the DOM. It's used for fetching data, setting up subscriptions, or other side effects.
+
+<h3>Updating:</h3>  This phase occurs when a component's state or props change, causing the component to re-render. The following lifecycle methods are called during this phase:
+
+<h4>getDerivedStateFromProps():</h4>   Called before the component is re-rendered. It's used to update the state based on changes in the props.
+
+<h4>shouldComponentUpdate(): </h4> Called before the component is re-rendered. It's used to determine if the component should re-render based on changes in the state or props.
+render(): Called to generate the JSX representation of the component.
+
+<h4>getSnapshotBeforeUpdate():</h4>  Called before the DOM is updated. It's used to capture information from the DOM (e.g., scroll position) before the update.
+
+<h4>componentDidUpdate():</h4>  Called after the component is re-rendered and the DOM is updated. It's used to perform side effects, like updating the data or subscriptions.
+
+<h3>Unmounting:</h3>  This phase occurs when a component is being removed from the DOM. The following lifecycle method is called during this phase:
+
+<h4>componentWillUnmount():</h4>  Called before the component is removed from the DOM. It's used to clean up resources, like timers or subscriptions, to prevent memory leaks.
+With the introduction of React Hooks, lifecycle methods can now be replicated using hooks like useEffect in functional components, minimizing the need for class components.
+
+### 6. What are React Hooks, and what are the most commonly used hooks?
+
+Answer: React Hooks are functions introduced in React 16.8 that allow you to use state and other React features in functional components instead of class components. Hooks enable you to reuse stateful logic between components without changing the component hierarchy.
+
+The most commonly used hooks are:
+
+1. useState: This hook allows you to add state to functional components. It takes the initial state as an argument and returns an array containing the current state and a function to update the state.
+
+- Example of using useState:
+
+```js
+import React, { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  const incrementCounter = () => {
+    setCount(count + 1);
+  };
+
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+      <button onClick={incrementCounter}>Increment</button>
+    </div>
+  );
+}
+
+export default Counter;
+```
+
+2. useEffect: This hook allows you to perform side effects, like fetching data or updating the DOM, in functional components. It takes two arguments: a function containing the side effect and an optional dependency array. The side effect function is called whenever the dependencies change or the component mounts/unmounts.
+
+- Example of using useEffect:
+
+```js
+import React, { useState, useEffect } from "react";
+
+function DataFetcher() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch("https://api.example.com/data")
+      .then((response) => response.json())
+      .then((data) => setData(data));
+  }, []); // Empty dependency array ensures the effect runs only once
+
+  return (
+    <div>
+      {data.map((item) => (
+        <p key={item.id}>{item.name}</p>
+      ))}
+    </div>
+  );
+}
+
+export default DataFetcher;
+```
+
+3. useContext: This hook allows you to access the value of a React context without using the Context.Consumer component. It takes the context object as an argument and returns the current context value.
+
+- Example of using useContext:
+
+```js
+import React, { useContext } from "react";
+import { ThemeContext } from "./ThemeContext";
+
+function ThemedButton() {
+  const theme = useContext(ThemeContext);
+
+  return (
+    <button style={{ background: theme.background, color: theme.foreground }}>
+      Themed Button
+    </button>
+  );
+}
+
+export default ThemedButton;
+```
+
+There are other built-in hooks like `useReducer`, `useCallback`, `useMemo`, and `useRef`. Developers can also create custom hooks to share stateful logic between components.
+
+### 7. What is the virtual DOM, and how does it work?
+
+The virtual DOM (vDOM) is an in-memory representation of the actual DOM (Document Object Model). In React, whenever there is an update or change in the component's state, a new virtual DOM is created instead of updating the real DOM directly. The virtual DOM is much faster than the real DOM because updating the real DOM directly can be expensive in terms of performance.
+
+React uses a technique called "diffing" to compare the new virtual DOM with the old one. It identifies the differences (or "diffs") between the two and then updates only the parts of the real DOM that have changed. This process is known as "reconciliation" and helps to optimize the performance of React applications.
+
+Here's an analogy to help you understand the concept of virtual DOM:
+
+Think of the real DOM as a large, complicated jigsaw puzzle. Each time you make a change, you need to take the whole puzzle apart and put it back together again. On the other hand, the virtual DOM is like having a second, identical puzzle that you can quickly update. You can then compare the two puzzles and only change the pieces that are different. This way, you avoid the time-consuming process of rebuilding the entire puzzle from scratch.
+
 ### Most asked Interview Questions and Answer
 
 Link: [https://www.altcademy.com/blog/top-20-reactjs-technical-questions-in-coding-interviews/]
