@@ -514,6 +514,224 @@ Here's an analogy to help you understand the concept of virtual DOM:
 
 Think of the real DOM as a large, complicated jigsaw puzzle. Each time you make a change, you need to take the whole puzzle apart and put it back together again. On the other hand, the virtual DOM is like having a second, identical puzzle that you can quickly update. You can then compare the two puzzles and only change the pieces that are different. This way, you avoid the time-consuming process of rebuilding the entire puzzle from scratch.
 
+### 8. What is JSX, and why is it used in React?
+
+JSX (JavaScript XML) is a syntax extension for JavaScript that allows you to write HTML-like code within your JavaScript code. It's not a programming language, but rather a way to describe the structure and appearance of your UI (User Interface) components using a familiar syntax.
+
+React uses JSX to define the structure and appearance of components. It makes the code more readable and easier to understand, especially when dealing with complex UIs. JSX is not required to use React, but it's highly recommended and widely adopted in the community.
+
+Here's an example of a simple React component using JSX:
+
+```js
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+```
+
+Without JSX, the same component would look like this:
+
+```js
+function Welcome(props) {
+  return React.createElement("h1", null, `Hello, ${props.name}`);
+}
+```
+
+As you can see, the JSX version is more readable and easier to understand.
+
+### 9. How do you handle events in React?
+
+In React, event handling is similar to handling events in plain HTML, but with some differences in syntax. For example, instead of using the onclick attribute in HTML, you would use the onClick attribute in React. Additionally, event handlers in React are written in camelCase, and you pass a function as the event handler instead of a string.
+
+Here's an example of handling a button click event in React:
+
+```js
+import React from "react";
+
+function ButtonClick() {
+  const handleClick = () => {
+    alert("Button clicked!");
+  };
+
+  return <button onClick={handleClick}>Click me</button>;
+}
+
+export default ButtonClick;
+```
+
+In this example, we define a handleClick function that will be called when the button is clicked. We then pass this function as the event handler to the onClick attribute of the button.
+
+When using class components, you need to be careful with the value of this inside event handlers. To ensure that this refers to the component instance, you can either bind the event handler in the constructor or use an arrow function.
+
+Here's an example of handling a button click event in a class component:
+
+```js
+import React, { Component } from "react";
+
+class ButtonClick extends Component {
+  handleClick() {
+    alert("Button clicked!");
+  }
+
+  render() {
+    return <button onClick={this.handleClick.bind(this)}>Click me</button>;
+  }
+}
+
+export default ButtonClick;
+```
+
+Or using an arrow function:
+
+```js
+import React, { Component } from "react";
+
+class ButtonClick extends Component {
+  handleClick = () => {
+    alert("Button clicked!");
+  };
+
+  render() {
+    return <button onClick={this.handleClick}>Click me</button>;
+  }
+}
+
+export default ButtonClick;
+```
+
+### 10. What are controlled and uncontrolled components?
+
+In React, form elements like input, textarea, and select can be handled as either controlled or uncontrolled components.
+
+Controlled Components
+Controlled components are form elements whose values are controlled by the React state. In a controlled component, the form element's value is directly linked to the component's state, and any change in the form element's value will update the state.
+
+Here's an example of a controlled input component:
+
+```js
+import React, { useState } from "react";
+
+function ControlledInput() {
+  const [inputValue, setInputValue] = useState("");
+
+  const handleChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
+  return (
+    <div>
+      <input type="text" value={inputValue} onChange={handleChange} />
+      <p>Entered value: {inputValue}</p>
+    </div>
+  );
+}
+
+export default ControlledInput;
+```
+
+In this example, the input element's value is set using the value attribute and is linked to the inputValue state. When the input value changes, the handleChange function is called, which updates the state with the new value.
+
+<h3>Uncontrolled Components:</h3>
+
+Uncontrolled components are form elements whose values are managed by the DOM itself, not by the React state. To access the values of uncontrolled components, you use a ref to get direct access to the DOM element.
+
+Here's an example of an uncontrolled input component:
+
+```js
+import React, { useRef } from "react";
+
+function UncontrolledInput() {
+  const inputRef = useRef();
+
+  const handleClick = () => {
+    alert(`Entered value: ${inputRef.current.value}`);
+  };
+
+  return (
+    <div>
+      <input type="text" ref={inputRef} />
+      <button onClick={handleClick}>Show entered value</button>
+    </div>
+  );
+}
+
+export default UncontrolledInput;
+```
+
+In this example, we use a ref to access the input element directly. When the button is clicked, the handleClick function is called, which retrieves and displays the input value using the ref.
+
+In general, it's recommended to use controlled components because they make it easier to manage form data and validate user input.
+
+### 11. What is the context API?
+
+The Context API is a feature in React that allows you to share data between components without having to pass it through props. This can be helpful when you need to pass data through multiple levels of a component tree, or when you have a global state that should be accessible by multiple components.
+
+To create a context, you can use the `React.createContext` function:
+
+```js
+const MyContext = React.createContext();
+```
+
+This will create a context object with two components, `MyContext.Provider` and `MyContext.Consumer`.
+
+`MyContext.Provider` is a component that wraps the part of the component tree that needs access to the shared data. It has a `value` prop that takes the data you want to share.
+
+Here's an example of using the context provider:
+
+```js
+import React from "react";
+import MyComponent from "./MyComponent";
+import MyContext from "./MyContext";
+
+function App() {
+  const sharedData = { text: "Hello from context!" };
+
+  return (
+    <MyContext.Provider value={sharedData}>
+      <MyComponent />
+    </MyContext.Provider>
+  );
+}
+
+export default App;
+```
+
+`MyContext.Consumer` is a component that can be used inside the component tree to access the shared data. It takes a function as a child, which receives the context value as an argument.
+
+Here's an example of using the context consumer:
+
+```js
+import React from "react";
+import MyContext from "./MyContext";
+
+function MyComponent() {
+  return (
+    <MyContext.Consumer>
+      {(context) => <p>{context.text}</p>}
+    </MyContext.Consumer>
+  );
+}
+
+export default MyComponent;
+```
+
+In this example, the MyComponent component uses the `MyContext.Consumer` component to access the shared data from the context.
+
+You can also use the useContext hook to access the context value in functional components:
+
+```js
+import React, { useContext } from "react";
+import MyContext from "./MyContext";
+
+function MyComponent() {
+  const context = useContext(MyContext);
+  return <p>{context.text}</p>;
+}
+
+export default MyComponent;
+```
+
+The Context API is a convenient way to share state and data between components, but it's not a replacement for state management libraries like Redux, which provide more features and optimizations for managing complex state.
+
 ### Most asked Interview Questions and Answer
 
 Link: [https://www.altcademy.com/blog/top-20-reactjs-technical-questions-in-coding-interviews/]
