@@ -250,9 +250,57 @@ In an uncontrolled component, the form data is not controlled by React state. In
 
 Ref: https://www.scaler.com/topics/react/controlled-and-uncontrolled-components-in-react/
 
+## Top 20 ReactJS Technical Questions in Coding Interviews
+
+### 1. What is ReactJS, and what are its key features?
+
+Answer: ReactJS, often referred to as React, is an open-source JavaScript library developed by Facebook for building user interfaces, specifically for single-page applications. It enables developers to create reusable UI components, manage the state of the app, and efficiently update the UI as the state changes.
+
+#### Key features of ReactJS include:
+
+1. Virtual DOM: React creates a lightweight in-memory data structure called the Virtual DOM, which is an abstract representation of the actual DOM. This feature allows React to efficiently update the UI by calculating the difference between the current and new Virtual DOM (called "diffing") and then updating the real DOM with only the necessary changes.
+
+2. Component-based architecture: React follows a component-based architecture, where complex UIs can be broken down into smaller, reusable components. Each component has its own logic, state, and can render itself independently.
+
+3. One-way data binding: React follows a unidirectional data flow, meaning the data is passed down from parent components to child components through properties (props). This approach makes it easier to trace and debug the flow of data in an application.
+
+4. JSX: JSX (JavaScript XML) is a syntax extension for JavaScript that allows you to write HTML-like structures within JavaScript code. It makes the code more readable and easier to understand.
+
+### 2. What is the difference between functional and class components?
+
+Functional components (also known as stateless or dumb components) are plain JavaScript functions that accept props as an argument and return a React element. They are primarily used for presenting data and don't have access to the component's state or lifecycle methods. However, with the introduction of React Hooks, functional components can now manage state and access lifecycle methods.
+
+```js
+import React from "react";
+
+function Greeting(props) {
+  return <h1>Hello, {props.name}!</h1>;
+}
+
+export default Greeting;
+```
+
+Class components (also known as stateful or smart components) are JavaScript ES6 classes that extend the React.Component class. They have access to component state and lifecycle methods, making them suitable for managing data and complex UI logic.
+
+```js
+import React, { Component } from "react";
+
+class Greeting extends Component {
+  render() {
+    return <h1>Hello, {this.props.name}!</h1>;
+  }
+}
+
+export default Greeting;
+```
+
+With the introduction of React Hooks, functional components have become more powerful, and the use of class components has declined. However, it's still essential to understand both types of components for coding interviews and legacy codebases.
+
 ### Most asked Interview Questions and Answer
 
 Link: [https://www.altcademy.com/blog/top-20-reactjs-technical-questions-in-coding-interviews/]
+
+2. [Medium React js asked questions](https://medium.com/@greennolgaa/mastering-reactjs-interview-questions-and-answers-a-comprehensive-guide-for-5-years-of-experience-d93fd09d44c2)
 
 ### Coding Interview Exercise:
 
