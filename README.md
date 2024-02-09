@@ -732,6 +732,254 @@ export default MyComponent;
 
 The Context API is a convenient way to share state and data between components, but it's not a replacement for state management libraries like Redux, which provide more features and optimizations for managing complex state.
 
+### 12. What are Higher-Order Components (HOCs)?
+
+Higher-Order Components (HOCs) are a pattern in React for reusing component logic. HOCs are functions that take a component as an argument and return a new component with additional props or behavior.
+
+Here's an example of a simple HOC that logs the props of the wrapped component:
+
+```js
+function withLogging(WrappedComponent) {
+  return function LoggingComponent(props) {
+    console.log("Props:", props);
+    return <WrappedComponent {...props} />;
+  };
+}
+```
+
+In this example, the withLogging function takes a WrappedComponent as an argument and returns a new LoggingComponent that logs the props and renders the WrappedComponent with the same props.
+
+To use the HOC, you can wrap your component like this:
+
+```js
+import React from "react";
+import withLogging from "./withLogging";
+
+function MyComponent(props) {
+  return <p>Hello, {props.name}!</p>;
+}
+
+export default withLogging(MyComponent);
+```
+
+This will create a new component that includes the logging behavior, and you can use it just like the original component.
+
+HOCs can be used to inject additional props, modify existing props, or add new behavior to components. They can also be composed together to create more complex components.
+
+Keep in mind that HOCs can introduce some issues, like naming collisions or extra component layers in the React tree. Many of these issues can be mitigated by using React Hooks, which provide a more flexible and composable way to reuse logic between components.
+
+### 13. What is React Router, and how do you use it?
+
+React Router is a popular third-party library for managing navigation and rendering components based on the browser URL in React applications. It provides a declarative way to define routes and navigate between components.
+
+`npm install react-router-dom`
+
+### 14. What are keys in React, and why are they important?
+
+Keys are a special attribute in React used to help identify and track elements in a list. When rendering a list of elements, each element should have a unique key prop to help React determine which elements have changed, been added, or been removed when updating the DOM.
+
+Here's an example of using keys when rendering a list of items:
+
+```js
+import React from "react";
+
+function ItemList({ items }) {
+  return (
+    <ul>
+      {items.map((item) => (
+        <li key={item.id}>{item.text}</li>
+      ))}
+    </ul>
+  );
+}
+
+export default ItemList;
+```
+
+In this example, we assign a unique key prop to each li element based on the item.id property.
+
+Keys should be unique among siblings, and they should not be based on the index of the element in the list, as this can cause issues with the update and reordering process. Instead, use a unique identifier from your data, like an ID or a combination of properties that make the element unique.
+
+Using keys correctly can improve the performance of your application and help prevent bugs related to component updates and state management.
+
+### 15. What is useCallback, and when should you use it?
+
+`useCallback` is a hook in React that allows you to memoize a function, so it doesn't get recreated on every render of the component. This can be useful when you want to optimize the performance of your application by preventing unnecessary re-renders of child components that depend on the memoized function.
+
+The `useCallback` hook takes two arguments: the function you want to memoize and an array of dependencies. The hook returns a memoized version of the function, which will only be recreated if any of the dependencies change.
+
+Here's an example of using `useCallback`:
+
+```js
+import React, { useCallback, useState } from "react";
+
+function ExpensiveComponent({ onClick }) {
+  console.log("ExpensiveComponent rendered");
+  return <button onClick={onClick}>Click me</button>;
+}
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  const handleClick = useCallback(() => {
+    setCount((prevCount) => prevCount + 1);
+  }, []);
+
+  return (
+    <div>
+      <ExpensiveComponent onClick={handleClick} />
+      <p>Count: {count}</p>
+    </div>
+  );
+}
+
+export default App;
+```
+
+In this example, we use `useCallback` to memoize the handleClick function, which updates the count state. The ExpensiveComponent takes this memoized function as a prop and renders a button that calls it when clicked.
+
+Since the handleClick function doesn't change between renders, the ExpensiveComponent will not re-render when the count state changes, which can improve the performance of the application.
+
+Keep in mind that `useCallback` should be used sparingly and only when necessary, as it can introduce additional complexity and overhead to your code. In many cases, using a regular function or an inline arrow function is sufficient and more efficient.
+
+### 16. What is useMemo, and when should you use it?
+
+`useMemo` is a hook in React that allows you to memoize the result of a function so that it doesn't get recomputed on every render of the component. This can be useful when you want to optimize the performance of your application by preventing unnecessary calculations or data transformations.
+
+The `useMemo` hook takes two arguments: a function that computes the memoized value and an array of dependencies. The hook returns the memoized value, which will only be recomputed if any of the dependencies change.
+
+Here's an example of using `useMemo`:
+
+```js
+import React, { useMemo, useState } from "react";
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  const expensiveComputation = (value) => {
+    console.log("Expensive computation");
+    return value * 10;
+  };
+
+  const memoizedResult = useMemo(() => expensiveComputation(count), [count]);
+
+  const handleClick = () => {
+    setCount((prevCount) => prevCount + 1);
+  };
+
+  return (
+    <div>
+      <button onClick={handleClick}>Increase count</button>
+      <p>Count: {count}</p>
+      <p>Memoized result: {memoizedResult}</p>
+    </div>
+  );
+}
+
+export default App;
+```
+
+In this example, we use useMemo to memoize the result of the expensiveComputation function, which takes the count state as an argument. Since the memoized result is only recomputed when the count state changes, the expensiveComputation function is not called on every render, which can improve the performance of the application.
+
+Keep in mind that useMemo should be used sparingly and only when necessary, as it can introduce additional complexity and overhead to your code. In many cases, computing the value directly or using a regular function is sufficient and more efficient.
+
+### 17. What is React.Children, and when should you use it?
+
+React.Children is a utility provided by React to help you work with the children prop in a more consistent and flexible way. It provides methods for counting, mapping, or iterating over the children, as well as other utility functions.
+
+Here's an example of using React.Children.map to wrap each child in a div element
+
+```js
+import React from "react";
+
+function WrapperComponent({ children }) {
+  return (
+    <div>
+      {React.Children.map(children, (child) => (
+        <div className="wrapper">{child}</div>
+      ))}
+    </div>
+  );
+}
+
+export default WrapperComponent;
+```
+
+In this example, the WrapperComponent takes a children prop and uses React.Children.map to render each child inside a div element with a wrapper class.
+
+You can use React.Children when you need more control over the rendering or processing of the children in a component, or when you want to ensure that your components work correctly with different types of children, like arrays, strings, or elements.
+
+### 18. What is the difference between React.PureComponent and React.Component?
+
+React.PureComponent is a subclass of React.Component that implements a shallow comparison for checking if the component should update. This means that PureComponent only re-renders when its props or state have changed in a shallow manner, which can lead to performance improvements in some cases.
+
+```js
+import React from "react";
+
+class RegularComponent extends React.Component {
+  render() {
+    console.log("RegularComponent rendered");
+    return <div>{this.props.value}</div>;
+  }
+}
+
+class PureComponentExample extends React.PureComponent {
+  render() {
+    console.log("PureComponentExample rendered");
+    return <div>{this.props.value}</div>;
+  }
+}
+
+export { RegularComponent, PureComponentExample };
+```
+
+In this example, we have two components, RegularComponent and PureComponentExample. The PureComponentExample extends React.PureComponent instead of React.Component. If we pass the same props to both components and update the parent component, RegularComponent will re-render regardless of whether its props have changed, while PureComponentExample will only re-render if its props have changed, which can lead to better performance.
+
+However, it's important to note that PureComponent only performs a shallow comparison of props and state. This means that if you're passing complex data structures like nested objects or arrays, it may not update correctly, and you might need to implement a custom shouldComponentUpdate method in your component.
+
+### 19. What is PropTypes, and how do you use it?
+
+PropTypes is a library used to define the types of props that a component should receive, helping you to catch errors during development. It is not included in the React core library, but it's widely used in the React community.
+
+### 20. What is the difference between React.createRef and useRef?
+
+`React.createRef` and `useRef` are two ways to create a reference to a DOM element or an instance of a class component in React.
+
+`React.createRef` is used in class components, while `useRef` is a hook that can be used in functional components. Here's an example of using each method to create a reference to an input element:
+
+```js
+import React, { useRef } from "react";
+
+class ClassComponentExample extends React.Component {
+  constructor(props) {
+    super(props);
+    this.inputRef = React.createRef();
+  }
+
+  componentDidMount() {
+    this.inputRef.current.focus();
+  }
+
+  render() {
+    return <input ref={this.inputRef} />;
+  }
+}
+
+function FunctionalComponentExample() {
+  const inputRef = useRef();
+
+  React.useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
+  return <input ref={inputRef} />;
+}
+
+export { ClassComponentExample, FunctionalComponentExample };
+```
+
+In general, if you're using functional components with hooks, you should use useRef to create references. If you're still using class components, you can use React.createRef.
+
 ### Most asked Interview Questions and Answer
 
 Link: [https://www.altcademy.com/blog/top-20-reactjs-technical-questions-in-coding-interviews/]
