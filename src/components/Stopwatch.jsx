@@ -36,7 +36,9 @@ const Stopwatch = () => {
       <h2>Stopwatch</h2>
       <p>Seconds: {seconds}</p>
       <button onClick={handleStart}>Start</button>
-      <button onClick={handlePause}>Pause</button>
+      <button style={{ margin: "10px 15px" }} onClick={handlePause}>
+        Pause
+      </button>
       <button onClick={handleReset}>Reset</button>
     </div>
   );

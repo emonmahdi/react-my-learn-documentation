@@ -2,11 +2,24 @@
 
 ## Job Placement Shortlist React Interview Question and Anser
 
-#### 1. What is reactjs?
+#### 1. What is react js? Why User React?
 
 React is a JavaScript library for building user interfaces.
 React(aka React.js or ReactJS) is an open-source front-end JavaScript library that is used for building composable user interfaces, especially for single-page applications. It is used for handling the view layer for web and mobile apps based on components in a declarative approach.
 React was created by Jordan Walke, a software engineer working for Facebook. React was first deployed on Facebook's News Feed in 2011 and on Instagram in 2012.
+
+#### Benefits of react js:
+
+- React easy to learn from other library of framework
+- React has large development community
+- React provide reusable components
+- Virtual Dom
+- Jsx performance better in application
+- Debugging and Error Handling easily because Uni directional Data flow
+- Redux implement easily
+- React Hooks
+
+Reference: [why use react js](https://www.monocubed.com/blog/why-use-react/)
 
 #### 2. React js disadvantage.?
 
@@ -110,6 +123,8 @@ The useState hook returns an array with two elements
 
 useEffect
 The useEffect hook returns nothing. It is used for handling side effects in functional components. The useEffect function itself does not return anything; instead, it allows you to perform side effects (such as data fetching, subscriptions, manual DOM manipulations, etc.) in a declarative way.
+
+Ref: [Hooks](https://saadbashar.com/2021/07/24/%E0%A6%B8%E0%A6%B9%E0%A6%9C-%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%E0%A7%9F-react-hooks-%E0%A6%B8%E0%A6%BF%E0%A6%B0%E0%A6%BF%E0%A6%9C-%E0%A6%AA%E0%A6%B0%E0%A7%8D%E0%A6%AC-%E0%A7%A7/)
 
 #### 11. React lifecycle সম্পর্কে বলো
 
@@ -396,7 +411,7 @@ export default Counter;
 
 Answer: Lifecycle methods are special methods in class components that allow you to execute code at specific points during the component's lifecycle. The lifecycle of a React component can be divided into three main phases:
 
-Mounting: This phase occurs when a component is being created and inserted into the DOM. The following lifecycle methods are called during this phase:
+<h3>Mounting:</h3>  This phase occurs when a component is being created and inserted into the DOM. The following lifecycle methods are called during this phase:
 
 <h4>constructor():</h4>  Called when the component is being created. It's used to initialize the state and bind event handlers.
 

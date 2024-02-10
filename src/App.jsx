@@ -8,8 +8,12 @@ import Child from "./coding/Six/Child";
 import Eight from "./coding/Eight";
 import Nine from "./coding/Nine";
 import Ten from "./coding/Ten";
-import CurrencyConverter from "./components/CurrencyConverter";
+// import CurrencyConverter from "./components/CurrencyConverter";
 import Stopwatch from "./components/Stopwatch";
+import Problems from "./coding-problems/Problems";
+import BDCurrencyConverter from "./coding-problems/BDCurrencyConverter";
+import Sample from "./coding-problems/Sample";
+import ProblemTen from "./coding-problems/Problem2";
 
 function App() {
   return (
@@ -23,8 +27,12 @@ function App() {
       >
         React My Practice Docs
       </h2>
-      <CurrencyConverter />
+      <Problems />
+      <BDCurrencyConverter />
+      {/* <CurrencyConverter /> */}
       <Stopwatch />
+      <Sample />
+      <ProblemTen />
       <FirstJSX />
       <Second />
       <Third />
