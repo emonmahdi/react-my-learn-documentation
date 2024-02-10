@@ -111,7 +111,7 @@ Real Life example: create a React Component that upon hover its background color
 
 Reference: https://deadsimplechat.com/blog/higher-order-componets-in-react/
 
-#### 10. UseEffect and useState কি return করে?
+#### 10.What is Hooks? UseEffect and useState কি return করে?
 
 useState and useEffect are two fundamental hooks in React that are used for managing state and performing side effects in functional components.
 
@@ -124,7 +124,11 @@ The useState hook returns an array with two elements
 useEffect
 The useEffect hook returns nothing. It is used for handling side effects in functional components. The useEffect function itself does not return anything; instead, it allows you to perform side effects (such as data fetching, subscriptions, manual DOM manipulations, etc.) in a declarative way.
 
-Ref: [Hooks](https://saadbashar.com/2021/07/24/%E0%A6%B8%E0%A6%B9%E0%A6%9C-%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%E0%A7%9F-react-hooks-%E0%A6%B8%E0%A6%BF%E0%A6%B0%E0%A6%BF%E0%A6%9C-%E0%A6%AA%E0%A6%B0%E0%A7%8D%E0%A6%AC-%E0%A7%A7/)
+Ref:
+
+1. [Hooks](https://saadbashar.com/2021/07/24/%E0%A6%B8%E0%A6%B9%E0%A6%9C-%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%E0%A7%9F-react-hooks-%E0%A6%B8%E0%A6%BF%E0%A6%B0%E0%A6%BF%E0%A6%9C-%E0%A6%AA%E0%A6%B0%E0%A7%8D%E0%A6%AC-%E0%A7%A7/)
+
+2. [All hooks with example](https://medium.com/@AbidKazmi/all-react-hooks-in-one-short-4b0ed4b5a6e4)
 
 #### 11. React lifecycle সম্পর্কে বলো
 
@@ -194,7 +198,7 @@ Optimizing a React application involves various strategies to improve performanc
 1. Code Splitting
 2. Bundle Size Optimization
 3. Lazy Loading
-4. Memoization
+4. [Memoization](https://www.freecodecamp.org/news/memoization-in-javascript-and-react/)
 5. Server-Side Rendering (SSR) and Static Site Generation (SSG)
 6. Optimize Images and Assets
 7. Optimize Component Rendering
@@ -202,7 +206,9 @@ Optimizing a React application involves various strategies to improve performanc
 9. Bundle Analysis and Profiling
 10. Upgrade React and Dependencies
 
-reference: https://blog.logrocket.com/optimizing-performance-react-app/
+Reference:
+
+1. [React Optimization](https://blog.logrocket.com/optimizing-performance-react-app/) 2.[React App Optimization Techniques](https://www.freecodecamp.org/news/measure-and-improve-performance-of-react-apps/)
 
 #### 15. রিয়েক্ট এর স্টেড ম্যানেজমেন্ট জিনিস্টা কি?
 
@@ -221,6 +227,10 @@ Reference: https://blog.logrocket.com/modern-guide-react-state-patterns/#:~:text
 
 JSX (JavaScript XML) is a syntax extension that makes writing React components more declarative and readable. Under the hood, JSX gets transformed into JavaScript code that uses React.createElement to create a virtual representation of the UI. This virtual representation is then rendered to the actual DOM by React.
 
+JSX: JavaScript এর একটি Syntax Extension হচ্ছে JSX। UI সুন্দর করতে মূলত এটি React এ ব্যবহার করা হয় এবং React এর Elements গুলোকে DOM এর মধ্যে Rendering করতে JSX অসাধারণ কাজ করে থাকে। এটি একটি JavaScript Extension যা ডেভেলপারদের HTML ও XML Syntax কন্ট্রোল ও লজিক কে একসাথে করে। [JSX](https://www.linkedin.com/pulse/react-js-%E0%A6%95-%E0%A6%95%E0%A6%A8-%E0%A6%95%E0%A6%AD%E0%A6%AC-md-sabbir-hossain/)
+
+Reference: [React JSX](https://medium.com/zonayeds-diary/%E0%A6%B0%E0%A6%BF%E0%A6%85%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%95%E0%A7%8D%E0%A6%9F-%E0%A6%AC%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%B8%E0%A6%BF%E0%A6%95%E0%A6%B8%E0%A6%83-%E0%A6%9C%E0%A7%87%E0%A6%8F%E0%A6%B8%E0%A6%8F%E0%A6%95%E0%A7%8D%E0%A6%B8-jsx-%E0%A6%AA%E0%A6%B0%E0%A6%BF%E0%A6%9A%E0%A6%BF%E0%A6%A4%E0%A6%BF-80b66440b0b7)
+
 #### 17. Redux -flax কি?
 
 #### 18. Virtual dom and real dom এর পার্থক্য কি?
@@ -237,14 +247,38 @@ Virtual DOM:
 1. Virtual DOM represents the virtual/memory representation of the web page.
 2. DOM manipulation is very easy
 3. No memory wastage
-4. No memory wastage
-5. It updates fast
+4. It updates fast
 
 #### 19. UseEfect এর ডিপেন্ডেন্সি কেন ইউস করা হয়
 
+In React, the useEffect hook is used to perform side effects in functional components. A side effect in this context refers to any operation that affects something outside the scope of the component, such as data fetching, subscriptions, manually changing the DOM, or setting up timers.
+
+The dependency array in the useEffect hook is used to specify the values from the component's state or props that the effect depends on. It determines when the effect should run. If the values in the dependency array change, the effect will be re-executed.
+
+```js
+import React, { useEffect, useState } from "react";
+
+function ExampleComponent({ someProp }) {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    // This code will run when the component mounts and whenever 'someProp' changes
+    fetchData(someProp);
+  }, [someProp]);
+
+  const fetchData = async (param) => {
+    // Fetch data based on the parameter
+    const result = await fetchDataFromAPI(param);
+    setData(result);
+  };
+
+  // Rest of the component code...
+}
+```
+
 #### 20. What is context API? How does it work?
 
-#### 21. Props drailng কি?
+#### 21. Props drilling কি?
 
 Prop drilling is the process of passing data from a parent component down to its nested child components through intermediate components in a React application
 
