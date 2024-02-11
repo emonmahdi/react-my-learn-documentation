@@ -280,6 +280,14 @@ function ExampleComponent({ someProp }) {
 
 #### 20. What is context API? How does it work?
 
+The React Context API is a way for a React app to effectively produce global variables that can be passed around. This is the alternative to "prop drilling" or moving props from grandparent to child to parent, and so on.
+
+The Context API in React is a mechanism for sharing state between components in a tree without explicitly passing props through each level of the tree. It provides a way to pass data down to components that need it without going through intermediate components that don't need the data.
+
+Reference:
+
+1. [React Context API](https://blog.logrocket.com/react-context-api-deep-dive-examples/)
+
 #### 21. Props drilling কি?
 
 Prop drilling is the process of passing data from a parent component down to its nested child components through intermediate components in a React application
