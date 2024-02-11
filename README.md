@@ -208,7 +208,9 @@ Optimizing a React application involves various strategies to improve performanc
 
 Reference:
 
-1. [React Optimization](https://blog.logrocket.com/optimizing-performance-react-app/) 2.[React App Optimization Techniques](https://www.freecodecamp.org/news/measure-and-improve-performance-of-react-apps/)
+1. [React Optimization](https://blog.logrocket.com/optimizing-performance-react-app/)
+2. [React App Optimization Techniques](https://www.freecodecamp.org/news/measure-and-improve-performance-of-react-apps/)
+3. [Methods Of Improving And Optimizing Performance In React Apps](https://www.smashingmagazine.com/2020/07/methods-performance-react-apps/)
 
 #### 15. রিয়েক্ট এর স্টেড ম্যানেজমেন্ট জিনিস্টা কি?
 
@@ -285,6 +287,17 @@ Prop drilling is the process of passing data from a parent component down to its
 #### 22. React native এর Elementor and component নিয়ে কাজ করছে কিনা
 
 #### 23. React re-render কীভাবে ঠেকানো যায়
+
+Preventing the re-rendering using 3 hooks
+
+- useMemo()
+- useCallback()
+- useRef()
+
+Reference:
+
+1. [All about re-render](https://adevnadia.medium.com/react-re-renders-guide-why-react-components-re-render-a4efab132c10)
+2. [Preventing Re-rendering Using Hooks](https://dev.to/femi_dev/how-to-prevent-unnecessary-react-component-re-rendering-3c08#:~:text=Using%20React's%20useCallback,as%20its%20dependencies%20remain%20unchanged.)
 
 #### 24. useMemo use kora hoy kno?
 
