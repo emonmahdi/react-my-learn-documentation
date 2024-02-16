@@ -1073,3 +1073,7 @@ Link: [https://www.altcademy.com/blog/top-20-reactjs-technical-questions-in-codi
 #### Some useful blog link:
 
 #### 1. [Introduction to Building Production Ready & High-Performance Web Applications with the MERN Stack](https://medium.com/@ashfaqe.sa12/building-production-ready-high-performance-web-applications-with-the-mern-stack-how-to-unleash-cf54abc4036a)
+
+#### 2. [React Blog](https://react.dev/blog)
+
+#### 3. [Top 10 ReactJS Coding Interview Challenge For 2024](https://medium.com/javascript-in-plain-english/top-10-reactjs-coding-interview-challenge-for-2024-c1e591f9384c)
