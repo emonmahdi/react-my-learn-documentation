@@ -1069,3 +1069,7 @@ Link: [https://www.altcademy.com/blog/top-20-reactjs-technical-questions-in-codi
 5. React Coding Challenges : [https://blog.imocha.io/react-coding-challenges] [https://profy.dev/article/react-coding-challenges] [https://www.dhiwise.com/post/react-coding-challenges-common-pitfalls-and-how-to-avoid-them]
 
 6. JavaScript Coding Interview Preparation: [https://codeinterview.io/blog/javascript-coding-interview-questions/]
+
+#### Some useful blog link:
+
+#### 1. [Introduction to Building Production Ready & High-Performance Web Applications with the MERN Stack](https://medium.com/@ashfaqe.sa12/building-production-ready-high-performance-web-applications-with-the-mern-stack-how-to-unleash-cf54abc4036a)
