@@ -16,6 +16,10 @@ import Sample from "./coding-problems/Sample";
 import ProblemTen from "./coding-problems/Problem2";
 import TaskOne from "./components/TenCodingProblem/TaskOne";
 import TaskTwo from "./components/TenCodingProblem/TaskTwo";
+import TaskThree from "./components/TenCodingProblem/TaskThree";
+import TaskFour from "./components/TenCodingProblem/TaskFour";
+import UserRegistrationForm from "./components/TenCodingProblem/TaskFive";
+import UserSignUpForm from "./components/TenCodingProblem/TaskSix";
 
 function App() {
   return (
@@ -49,6 +53,10 @@ function App() {
       <Ten />
       <TaskOne />
       <TaskTwo />
+      <TaskThree />
+      <TaskFour />
+      <UserRegistrationForm />
+      <UserSignUpForm />
     </>
   );
 }
