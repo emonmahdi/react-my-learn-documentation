@@ -14,6 +14,8 @@ import Problems from "./coding-problems/Problems";
 import BDCurrencyConverter from "./coding-problems/BDCurrencyConverter";
 import Sample from "./coding-problems/Sample";
 import ProblemTen from "./coding-problems/Problem2";
+import TaskOne from "./components/TenCodingProblem/TaskOne";
+import TaskTwo from "./components/TenCodingProblem/TaskTwo";
 
 function App() {
   return (
@@ -45,6 +47,8 @@ function App() {
       <Eight />
       <Nine />
       <Ten />
+      <TaskOne />
+      <TaskTwo />
     </>
   );
 }
