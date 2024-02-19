@@ -20,8 +20,19 @@ import TaskThree from "./components/TenCodingProblem/TaskThree";
 import TaskFour from "./components/TenCodingProblem/TaskFour";
 import UserRegistrationForm from "./components/TenCodingProblem/TaskFive";
 import UserSignUpForm from "./components/TenCodingProblem/TaskSix";
+import TodoList from "./components/TenCodingProblem/TodoList";
+import ShoppingCart from "./components/TenCodingProblem/ShoppingCart";
+import PaginationComponent from "./components/TenCodingProblem/PaginationComponent";
+// import { useDisplayMode } from "./components/TenCodingProblem/DarkMode/DarkMode";
 
 function App() {
+  // const { displayMode, toggleDisplayMode } = useDisplayMode();
+
+  // const appStyle = {
+  //   background: displayMode === "light" ? "#ffffff" : "#333333",
+  //   color: displayMode === "light" ? "#333333" : "#ffffff",
+  //   padding: "5px",
+  // };
   return (
     <>
       <h2
@@ -57,6 +68,21 @@ function App() {
       <TaskFour />
       <UserRegistrationForm />
       <UserSignUpForm />
+      {/* <div style={appStyle}>
+        <h3>Press below button to change the display mode</h3>
+        <button onClick={() => toggleDisplayMode()}>
+          {displayMode === "light" ? "Dark Mode" : "Light Mode"}
+        </button>
+      </div> */}
+      <TodoList />
+      <ShoppingCart />
+      <div>
+        <h1>Pagination Example</h1>
+        <PaginationComponent
+          apiUrl="https://jsonplaceholder.typicode.com/posts"
+          itemsPerPage={10}
+        />
+      </div>
     </>
   );
 }
