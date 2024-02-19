@@ -31,7 +31,14 @@ const PaginationComponent = ({ apiUrl, itemsPerPage }) => {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        padding: "20px",
+        border: "1px solid #000",
+        margin: "10px 0",
+      }}
+    >
+      <h1>Pagination Example</h1>
       <ol>
         {data.map((item) => (
           <li key={item.id}>{item.title}</li> // Assuming 'name' is the property to display

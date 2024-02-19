@@ -23,6 +23,7 @@ import UserSignUpForm from "./components/TenCodingProblem/TaskSix";
 import TodoList from "./components/TenCodingProblem/TodoList";
 import ShoppingCart from "./components/TenCodingProblem/ShoppingCart";
 import PaginationComponent from "./components/TenCodingProblem/PaginationComponent";
+import ScrollALazyLoading from "./components/TenCodingProblem/ScrollALazyLoading";
 // import { useDisplayMode } from "./components/TenCodingProblem/DarkMode/DarkMode";
 
 function App() {
@@ -77,12 +78,12 @@ function App() {
       <TodoList />
       <ShoppingCart />
       <div>
-        <h1>Pagination Example</h1>
         <PaginationComponent
           apiUrl="https://jsonplaceholder.typicode.com/posts"
           itemsPerPage={10}
         />
       </div>
+      <ScrollALazyLoading />
     </>
   );
 }
