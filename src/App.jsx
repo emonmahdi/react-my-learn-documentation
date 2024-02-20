@@ -23,7 +23,9 @@ import UserSignUpForm from "./components/TenCodingProblem/TaskSix";
 import TodoList from "./components/TenCodingProblem/TodoList";
 import ShoppingCart from "./components/TenCodingProblem/ShoppingCart";
 import PaginationComponent from "./components/TenCodingProblem/PaginationComponent";
-import ScrollALazyLoading from "./components/TenCodingProblem/ScrollALazyLoading";
+import TicTacToe from "./components/TicTacToe";
+import "bootstrap/dist/css/bootstrap.min.css";
+// import ScrollALazyLoading from "./components/TenCodingProblem/ScrollALazyLoading";
 // import { useDisplayMode } from "./components/TenCodingProblem/DarkMode/DarkMode";
 
 function App() {
@@ -45,6 +47,7 @@ function App() {
       >
         React My Practice Docs
       </h2>
+      <TicTacToe />
       <Problems />
       <BDCurrencyConverter />
       {/* <CurrencyConverter /> */}
@@ -83,7 +86,7 @@ function App() {
           itemsPerPage={10}
         />
       </div>
-      <ScrollALazyLoading />
+      {/* <ScrollALazyLoading /> */}
     </>
   );
 }
