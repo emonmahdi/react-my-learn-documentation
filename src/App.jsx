@@ -25,6 +25,8 @@ import ShoppingCart from "./components/TenCodingProblem/ShoppingCart";
 import PaginationComponent from "./components/TenCodingProblem/PaginationComponent";
 import TicTacToe from "./components/TicTacToe";
 import "bootstrap/dist/css/bootstrap.min.css";
+import ImageInterActivity from "./components/InterActivity/ImageInterActivity";
+import ChatApp from "./components/InterActivity/ChatApp";
 // import ScrollALazyLoading from "./components/TenCodingProblem/ScrollALazyLoading";
 // import { useDisplayMode } from "./components/TenCodingProblem/DarkMode/DarkMode";
 
@@ -48,6 +50,8 @@ function App() {
         React My Practice Docs
       </h2>
       <TicTacToe />
+      <ImageInterActivity />
+      <ChatApp />
       <Problems />
       <BDCurrencyConverter />
       {/* <CurrencyConverter /> */}
